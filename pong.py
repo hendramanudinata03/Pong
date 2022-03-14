@@ -82,10 +82,10 @@ def paddleB_down():
 
 # Keyboard binding
 window.listen()
-window.onkeypress(paddleA_up, "Up")
-window.onkeypress(paddleA_down, "Down")
-window.onkeypress(paddleB_up, "Right")
-window.onkeypress(paddleB_down, "Left")
+window.onkeypress(paddleA_up, "w")
+window.onkeypress(paddleA_down, "s")
+window.onkeypress(paddleB_up, "Up")
+window.onkeypress(paddleB_down, "Down")
 
 # Main game loop
 while True:
@@ -100,15 +100,15 @@ while True:
 	# X coordinate
 	if ball.xcor() > 380:
 		ball.goto(0, 0)
+		ball.dx -= 0.005
 		ball.dx *= -1
-		ball.dx += 0.005
 		score -= 1
 		pen.clear()
 		pen.write("Score: {}".format(score), align="center", font=("Arial", 24, "normal"))
 	if ball.xcor() < -380:
 		ball.goto(0, 0)
+		ball.dx += 0.005
 		ball.dx *= -1
-		ball.dx -= 0.005
 		score -= 1
 		pen.clear()
 		pen.write("Score: {}".format(score), align="center", font=("Arial", 24, "normal"))
