@@ -44,8 +44,8 @@ ball.shape("circle")
 ball.color("white")
 ball.penup()
 ball.goto(-200, 0)
-ball.dx = 0.5
-ball.dy = 0.5
+ball.dx = 0.2
+ball.dy = 0.2
 
 # Pen
 pen = turtle.Turtle()
@@ -101,23 +101,21 @@ while True:
 	if ball.xcor() > 380:
 		ball.goto(0, 0)
 		ball.dx *= -1
-		ball.dx += 1
+		ball.dx += 0.005
 		score -= 1
 		pen.clear()
 		pen.write("Score: {}".format(score), align="center", font=("Arial", 24, "normal"))
 	if ball.xcor() < -380:
 		ball.goto(0, 0)
 		ball.dx *= -1
-		ball.dx -= 1
+		ball.dx -= 0.005
 		score -= 1
 		pen.clear()
 		pen.write("Score: {}".format(score), align="center", font=("Arial", 24, "normal"))
 	# Y coordinate
 	if ball.ycor() > 280:
-		ball.sety(280)
 		ball.dy *= -1
 	if ball.ycor() < -280:
-		ball.sety(-280)
 		ball.dy *= -1
 	# Paddle A
 	if paddleA.ycor() > 230:
@@ -132,14 +130,14 @@ while True:
 
 	# Paddle and ball collisions
 	if ball.xcor() < -360 and ball.ycor() < paddleA.ycor() + 50 and ball.ycor() > paddleA.ycor() - 50:
+		ball.dx -= 0.05
 		ball.dx *= -1
-		ball.dx += 0.05
 		score += 1
 		pen.clear()
 		pen.write("Score: {}".format(score), align="center", font=("Arial", 24, "normal"))
 	if ball.xcor() > 360 and ball.ycor() < paddleB.ycor() + 50 and ball.ycor() > paddleB.ycor() - 50:
+		ball.dx += 0.05
 		ball.dx *= -1
-		ball.dx -= 0.05
 		score += 1
 		pen.clear()
 		pen.write("Score: {}".format(score), align="center", font=("Arial", 24, "normal"))
