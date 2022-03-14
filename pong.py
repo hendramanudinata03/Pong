@@ -131,13 +131,13 @@ while True:
 		paddleB.sety(-230)
 
 	# Paddle and ball collisions
-	if ball.xcor() < -340 and ball.ycor() < paddleA.ycor() + 50 and ball.ycor() > paddleA.ycor() - 50:
+	if ball.xcor() < -360 and ball.ycor() < paddleA.ycor() + 50 and ball.ycor() > paddleA.ycor() - 50:
 		ball.dx *= -1
 		ball.dx += 0.05
 		score += 1
 		pen.clear()
 		pen.write("Score: {}".format(score), align="center", font=("Arial", 24, "normal"))
-	if ball.xcor() > 340 and ball.ycor() < paddleB.ycor() + 50 and ball.ycor() > paddleB.ycor() - 50:
+	if ball.xcor() > 360 and ball.ycor() < paddleB.ycor() + 50 and ball.ycor() > paddleB.ycor() - 50:
 		ball.dx *= -1
 		ball.dx -= 0.05
 		score += 1
