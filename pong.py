@@ -53,7 +53,7 @@ pen.speed(0)
 pen.color("green")
 pen.penup()
 pen.hideturtle()
-pen.goto(0, 260)
+pen.goto(0, 200)
 pen.write("Score: {}".format(score), align="center", font=("Arial", 24, "normal"))
 
 # Functions: Move paddle A Up
