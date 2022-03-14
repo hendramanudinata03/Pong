@@ -17,8 +17,7 @@ window.setup(width=800, height=600)
 window.tracer(0)
 
 # Initialize score
-scoreA = 0
-scoreB = 0
+score = 0
 
 # Paddle A
 paddleA = turtle.Turtle()
@@ -55,7 +54,7 @@ pen.color("green")
 pen.penup()
 pen.hideturtle()
 pen.goto(0, 260)
-pen.write("Player A: {} | Player B: {}".format(scoreA, scoreB), align="center", font=("Arial", 24, "normal"))
+pen.write("Score: {}".format(score), align="center", font=("Arial", 24, "normal"))
 
 # Functions: Move paddle A Up
 def paddleA_up():
@@ -102,15 +101,15 @@ while True:
 	if ball.xcor() > 380:
 		ball.goto(0, 0)
 		ball.dx *= -1
-		scoreA += 1
+		score -= 1
 		pen.clear()
-		pen.write("Player A: {} | Player B: {}".format(scoreA, scoreB), align="center", font=("Arial", 24, "normal"))
+		pen.write("Score: {}".format(score), align="center", font=("Arial", 24, "normal"))
 	if ball.xcor() < -380:
 		ball.goto(0, 0)
 		ball.dx *= -1
-		scoreB += 1
+		score -= 1
 		pen.clear()
-		pen.write("Player A: {} | Player B: {}".format(scoreA, scoreB), align="center", font=("Arial", 24, "normal"))
+		pen.write("Score: {}".format(score), align="center", font=("Arial", 24, "normal"))
 	# Y coordinate
 	if ball.ycor() > 280:
 		ball.sety(280)
@@ -132,5 +131,11 @@ while True:
 	# Paddle and ball collisions
 	if ball.xcor() < -340 and ball.ycor() < paddleA.ycor() + 50 and ball.ycor() > paddleA.ycor() - 50:
 		ball.dx *= -1
+		score += 1
+		pen.clear()
+		pen.write("Score: {}".format(score), align="center", font=("Arial", 24, "normal"))
 	if ball.xcor() > 340 and ball.ycor() < paddleB.ycor() + 50 and ball.ycor() > paddleB.ycor() - 50:
 		ball.dx *= -1
+		score += 1
+		pen.clear()
+		pen.write("Score: {}".format(score), align="center", font=("Arial", 24, "normal"))
